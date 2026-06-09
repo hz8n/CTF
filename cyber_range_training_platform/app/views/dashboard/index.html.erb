@@ -1,0 +1,13 @@
+<h1>Student Dashboard</h1>
+<div class="row g-3 my-3">
+  <div class="col-md-3"><div class="card stat-card p-3"><h5>Total Points</h5><h2><%= current_user.points %></h2></div></div>
+  <div class="col-md-3"><div class="card stat-card p-3"><h5>Current Level</h5><h2><%= current_user.level %></h2></div></div>
+  <div class="col-md-3"><div class="card stat-card p-3"><h5>Solved</h5><h2><%= @solved_count %></h2></div></div>
+  <div class="col-md-3"><div class="card stat-card p-3"><h5>Badges</h5><h2><%= @badges.count %></h2></div></div>
+</div>
+<h3>Badges Earned</h3>
+<div class="mb-4"><% @badges.each do |badge| %><span class="badge badge-soft me-2"><%= badge.name %></span><% end %></div>
+<h3>Recent Attempts</h3>
+<table class="table table-bordered"><tr><th>Challenge</th><th>Answer</th><th>Correct</th><th>Points</th></tr>
+<% @recent_attempts.each do |a| %><tr><td><%= a.challenge.title %></td><td><%= a.submitted_answer %></td><td><%= a.correct ? "Yes" : "No" %></td><td><%= a.points_awarded %></td></tr><% end %>
+</table>

@@ -1,0 +1,4 @@
+<h1>All Attempts</h1>
+<table class="table table-bordered"><tr><th>User</th><th>Challenge</th><th>Submitted Answer</th><th>Correct</th><th>Points</th><th>Date</th></tr>
+<% @attempts.each do |a| %><tr><td><%= a.user.name %></td><td><%= a.challenge.title %></td><td><%= a.submitted_answer %></td><td><%= a.correct ? "Yes" : "No" %></td><td><%= a.points_awarded %></td><td><%= a.created_at.strftime("%Y-%m-%d") %></td></tr><% end %>
+</table>

@@ -1,0 +1,9 @@
+<h1>Register</h1>
+<%= form_with model: @user, url: register_path, class: "card p-4" do |f| %>
+  <% @user.errors.full_messages.each do |msg| %><div class="alert alert-danger"><%= msg %></div><% end %>
+  <%= f.label :name %><%= f.text_field :name, class: "form-control mb-3", required: true %>
+  <%= f.label :email %><%= f.email_field :email, class: "form-control mb-3", required: true %>
+  <%= f.label :password %><%= f.password_field :password, class: "form-control mb-3", required: true %>
+  <%= f.label :password_confirmation %><%= f.password_field :password_confirmation, class: "form-control mb-3", required: true %>
+  <%= f.submit "Create account", class: "btn btn-success" %>
+<% end %>
