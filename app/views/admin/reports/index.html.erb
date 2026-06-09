@@ -1,0 +1,7 @@
+<h1>Reports</h1>
+<table class="table table-bordered"><tr><th>Student</th><th>Total Attempts</th><th>Solved Challenges</th><th>Success Rate</th><th>Total Points</th></tr>
+<% @students.each do |student| %>
+  <% total = student.attempts.count; solved = student.attempts.correct.select(:challenge_id).distinct.count; rate = total.zero? ? 0 : ((student.attempts.correct.count.to_f / total) * 100).round(1) %>
+  <tr><td><%= student.name %></td><td><%= total %></td><td><%= solved %></td><td><%= rate %>%</td><td><%= student.points %></td></tr>
+<% end %>
+</table>

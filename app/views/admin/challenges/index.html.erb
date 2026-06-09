@@ -1,0 +1,6 @@
+<h1>Manage Challenges</h1>
+<%= link_to "Add Challenge", new_admin_challenge_path, class: "btn btn-success mb-3" %>
+<table class="table table-bordered"><tr><th>Title</th><th>Category</th><th>Difficulty</th><th>Points</th><th>Actions</th></tr>
+<% @challenges.each do |challenge| %>
+<tr><td><%= challenge.title %></td><td><%= challenge.category %></td><td><%= challenge.difficulty %></td><td><%= challenge.points %></td><td><%= link_to "Edit", edit_admin_challenge_path(challenge), class: "btn btn-sm btn-outline-warning" %> <%= button_to "Delete", admin_challenge_path(challenge), method: :delete, class: "btn btn-sm btn-danger", form: { style: "display:inline" } %></td></tr>
+<% end %></table>

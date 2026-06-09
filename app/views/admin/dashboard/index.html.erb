@@ -1,0 +1,11 @@
+<h1>Admin Dashboard</h1>
+<div class="row g-3 my-3">
+  <div class="col-md-3"><div class="card stat-card p-3"><h5>Total Users</h5><h2><%= @total_users %></h2></div></div>
+  <div class="col-md-3"><div class="card stat-card p-3"><h5>Challenges</h5><h2><%= @total_challenges %></h2></div></div>
+  <div class="col-md-3"><div class="card stat-card p-3"><h5>Attempts</h5><h2><%= @total_attempts %></h2></div></div>
+  <div class="col-md-3"><div class="card stat-card p-3"><h5>Solved Count</h5><h2><%= @solved_count %></h2></div></div>
+</div>
+<div class="row g-3">
+  <div class="col-md-6"><div class="card p-3"><h3>Most Solved Challenges</h3><ul><% @most_solved.each do |challenge, count| %><li><%= challenge.title %>: <%= count %></li><% end %></ul></div></div>
+  <div class="col-md-6"><div class="card p-3"><h3>Hardest Challenges</h3><ul><% @hardest.each do |challenge, count| %><li><%= challenge.title %>: <%= count %> failed attempts</li><% end %></ul></div></div>
+</div>
